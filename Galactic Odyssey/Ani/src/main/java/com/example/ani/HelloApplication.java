@@ -47,6 +47,7 @@ public class HelloApplication extends Application {
             public void handle(long currentTime) {
                 double t= (currentTime - initialTime) / 1000000000.0;
                 System.out.println(t);
+                updateStatus();
                 paint();
             }
         };
@@ -54,7 +55,7 @@ public class HelloApplication extends Application {
     }
 
     public void updateStatus(){
-
+    player.move();
     }
 
     public void initializeComponent()     {
@@ -78,16 +79,17 @@ public class HelloApplication extends Application {
              @Override
              public void handle(KeyEvent event) {
                  switch(event.getCode().toString()) {
-                     case "RIGHT":
+                     case "D":
 
                          right=true;
                          break;
-                     case "LEFT":
+                     case "A":
                          left=true;
                          break;
-                     case "UP":
+                     case "W":
                          up=true;
-                     case "DOWN":
+                         break;
+                     case "S":
                          down=true;
                  }
             }
@@ -98,16 +100,17 @@ public class HelloApplication extends Application {
              public void handle(KeyEvent event) {
 
                  switch(event.getCode().toString()) {
-                     case "RIGHT":
+                     case "D":
 
                          right=false;
                          break;
-                     case "LEFT":
+                     case "A":
                          left=false;
                          break;
-                     case "UP":
+                     case "W":
                          up=false;
-                     case "DOWN":
+                         break;
+                     case "S":
                          down=false;
                  }
 
